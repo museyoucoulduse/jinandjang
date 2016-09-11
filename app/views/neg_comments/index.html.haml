@@ -1,0 +1,23 @@
+%h1 Listing neg_comments
+
+%table
+  %thead
+    %tr
+      %th Body
+      %th Positive reaction
+      %th
+      %th
+      %th
+
+  %tbody
+    - @neg_comments.each do |neg_comment|
+      %tr
+        %td= neg_comment.body
+        %td= neg_comment.positive_reaction
+        %td= link_to 'Show', neg_comment
+        %td= link_to 'Edit', edit_neg_comment_path(neg_comment)
+        %td= link_to 'Destroy', neg_comment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Neg comment', new_neg_comment_path

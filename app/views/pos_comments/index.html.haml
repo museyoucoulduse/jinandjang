@@ -1,0 +1,23 @@
+%h1 Listing pos_comments
+
+%table
+  %thead
+    %tr
+      %th Body
+      %th Positive reaction
+      %th
+      %th
+      %th
+
+  %tbody
+    - @pos_comments.each do |pos_comment|
+      %tr
+        %td= pos_comment.body
+        %td= pos_comment.positive_reaction
+        %td= link_to 'Show', pos_comment
+        %td= link_to 'Edit', edit_pos_comment_path(pos_comment)
+        %td= link_to 'Destroy', pos_comment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Pos comment', new_pos_comment_path

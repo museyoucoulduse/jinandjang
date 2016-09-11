@@ -1,0 +1,16 @@
+= form_for @pos_comment do |f|
+  - if @pos_comment.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@pos_comment.errors.count, "error")} prohibited this pos_comment from being saved:"
+      %ul
+        - @pos_comment.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :body
+    = f.text_area :body
+  .field
+    = f.label :positive_reaction
+    = f.check_box :positive_reaction
+  .actions
+    = f.submit 'Save'

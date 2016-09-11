@@ -1,0 +1,16 @@
+= form_for @neg_comment do |f|
+  - if @neg_comment.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@neg_comment.errors.count, "error")} prohibited this neg_comment from being saved:"
+      %ul
+        - @neg_comment.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :body
+    = f.text_area :body
+  .field
+    = f.label :positive_reaction
+    = f.check_box :positive_reaction
+  .actions
+    = f.submit 'Save'

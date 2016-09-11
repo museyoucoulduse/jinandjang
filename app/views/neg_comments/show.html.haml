@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Body:
+  = @neg_comment.body
+%p
+  %b Positive reaction:
+  = @neg_comment.positive_reaction
+
+= link_to 'Edit', edit_neg_comment_path(@neg_comment)
+\|
+= link_to 'Back', neg_comments_path

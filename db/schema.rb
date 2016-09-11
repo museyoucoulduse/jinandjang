@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160910221152) do
+ActiveRecord::Schema.define(version: 20160911010109) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -19,12 +19,30 @@ ActiveRecord::Schema.define(version: 20160910221152) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "neg_comments", force: :cascade do |t|
+    t.text     "body"
+    t.boolean  "positive_reaction"
+    t.integer  "negative_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["negative_id"], name: "index_neg_comments_on_negative_id"
+  end
+
   create_table "negatives", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.datetime "when"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "pos_comments", force: :cascade do |t|
+    t.text     "body"
+    t.boolean  "positive_reaction"
+    t.integer  "positive_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["positive_id"], name: "index_pos_comments_on_positive_id"
   end
 
   create_table "positives", force: :cascade do |t|

@@ -1,0 +1,1 @@
+json.array! @neg_comments, partial: 'neg_comments/neg_comment', as: :neg_comment

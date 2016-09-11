@@ -1,0 +1,1 @@
+json.partial! "neg_comments/neg_comment", neg_comment: @neg_comment
