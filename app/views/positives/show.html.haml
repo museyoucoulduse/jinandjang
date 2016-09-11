@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Title:
+  = @positive.title
+%p
+  %strong Description:
+  = @positive.description
+%p
+  %strong When:
+  = @positive.when
+= link_to 'Edit', edit_positive_path(@positive)
+|
+= link_to 'Back', positives_path

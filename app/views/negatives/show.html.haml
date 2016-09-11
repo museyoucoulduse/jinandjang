@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Title:
+  = @negative.title
+%p
+  %strong Description:
+  = @negative.description
+%p
+  %strong When:
+  = @negative.when
+= link_to 'Edit', edit_negative_path(@negative)
+|
+= link_to 'Back', negatives_path

@@ -1,0 +1,20 @@
+= form_for(negative) do |f|
+  - if negative.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(negative.errors.count, "error")
+        prohibited this negative from being saved:
+      %ul
+        - negative.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :description
+    = f.text_area :description
+  .field
+    = f.label :when
+    = f.datetime_select :when
+  .actions
+    = f.submit

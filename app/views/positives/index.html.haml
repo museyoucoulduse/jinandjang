@@ -1,0 +1,20 @@
+%p#notice= notice
+%h1 Positives
+%table
+  %thead
+    %tr
+      %th Title
+      %th Description
+      %th When
+      %th{:colspan => "3"}
+  %tbody
+    - @positives.each do |positive|
+      %tr
+        %td= positive.title
+        %td= positive.description
+        %td= positive.when
+        %td= link_to 'Show', positive
+        %td= link_to 'Edit', edit_positive_path(positive)
+        %td= link_to 'Destroy', positive, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Positive', new_positive_path
